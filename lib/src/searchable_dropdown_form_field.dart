@@ -15,6 +15,7 @@ class SearchableDropdownFormField<T> extends FormField<T> {
     Widget? hintText,
     EdgeInsetsGeometry? margin,
     bool isEnabled = true,
+    bool showSearchBar = true,
     VoidCallback? disabledOnTap,
     Widget Function(String?)? errorWidget,
     Widget Function(Widget)? backgroundDecoration,
@@ -39,6 +40,7 @@ class SearchableDropdownFormField<T> extends FormField<T> {
           hintText: hintText,
           margin: margin,
           isEnabled: isEnabled,
+          showSearchBar: showSearchBar,
           disabledOnTap: disabledOnTap,
           errorWidget: errorWidget,
           backgroundDecoration: backgroundDecoration,
@@ -58,8 +60,7 @@ class SearchableDropdownFormField<T> extends FormField<T> {
     required Future<List<SearchableDropdownMenuItem<T>>?> Function(
       int,
       String?,
-    )?
-        paginatedRequest,
+    )? paginatedRequest,
     int? requestItemCount,
     Key? key,
     SearchableDropdownController<T>? controller,
@@ -70,6 +71,7 @@ class SearchableDropdownFormField<T> extends FormField<T> {
     Widget? hintText,
     EdgeInsetsGeometry? margin,
     bool isEnabled = true,
+    bool showSearchBar = true,
     VoidCallback? disabledOnTap,
     Widget Function(String?)? errorWidget,
     Widget Function(Widget)? backgroundDecoration,
@@ -96,6 +98,7 @@ class SearchableDropdownFormField<T> extends FormField<T> {
           hintText: hintText,
           margin: margin,
           isEnabled: isEnabled,
+          showSearchBar: showSearchBar,
           disabledOnTap: disabledOnTap,
           errorWidget: errorWidget,
           backgroundDecoration: backgroundDecoration,
@@ -125,6 +128,7 @@ class SearchableDropdownFormField<T> extends FormField<T> {
     Widget? hintText,
     EdgeInsetsGeometry? margin,
     bool isEnabled = true,
+    bool showSearchBar = true,
     VoidCallback? disabledOnTap,
     Widget Function(String?)? errorWidget,
     Widget Function(Widget)? backgroundDecoration,
@@ -151,6 +155,7 @@ class SearchableDropdownFormField<T> extends FormField<T> {
           hintText: hintText,
           margin: margin,
           isEnabled: isEnabled,
+          showSearchBar: showSearchBar,
           disabledOnTap: disabledOnTap,
           errorWidget: errorWidget,
           backgroundDecoration: backgroundDecoration,
@@ -182,6 +187,7 @@ class SearchableDropdownFormField<T> extends FormField<T> {
     this.hintText,
     this.margin,
     this.isEnabled = true,
+    this.showSearchBar = true,
     this.disabledOnTap,
     this.errorWidget,
     this.backgroundDecoration,
@@ -196,8 +202,10 @@ class SearchableDropdownFormField<T> extends FormField<T> {
     this.isDialogExpanded = true,
     this.hasTrailingClearIcon = true,
     this.dialogOffset,
-  })  : assert(initialValue == null || controller == null,
-            'You can use controllers initial item value',),
+  })  : assert(
+          initialValue == null || controller == null,
+          'You can use controllers initial item value',
+        ),
         super(
           builder: (FormFieldState<T> state) {
             return Padding(
@@ -219,6 +227,7 @@ class SearchableDropdownFormField<T> extends FormField<T> {
                       dropDownMaxHeight: dropDownMaxHeight,
                       searchHintText: searchHintText,
                       isEnabled: isEnabled,
+                      showSearchBar: showSearchBar,
                       disabledOnTap: disabledOnTap,
                       items: items,
                       value: initialValue,
@@ -245,6 +254,7 @@ class SearchableDropdownFormField<T> extends FormField<T> {
                       dropDownMaxHeight: dropDownMaxHeight,
                       searchHintText: searchHintText,
                       isEnabled: isEnabled,
+                      showSearchBar: showSearchBar,
                       disabledOnTap: disabledOnTap,
                       initialValue: initialFutureValue,
                       onChanged: (value) {
@@ -270,6 +280,7 @@ class SearchableDropdownFormField<T> extends FormField<T> {
                       dropDownMaxHeight: dropDownMaxHeight,
                       searchHintText: searchHintText,
                       isEnabled: isEnabled,
+                      showSearchBar: showSearchBar,
                       disabledOnTap: disabledOnTap,
                       initialValue: initialFutureValue,
                       onChanged: (value) {
@@ -295,6 +306,9 @@ class SearchableDropdownFormField<T> extends FormField<T> {
             );
           },
         );
+
+  /// show or hide searchBar.
+  final bool showSearchBar;
 
   /// Is dropdown enabled.
   final bool isEnabled;
