@@ -47,6 +47,7 @@ class _MyAppState extends State<MyApp> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0)),
               child: SearchableDropdown<int>.future(
+                showSearchBar: false,
                 hintText: const Text('Future request'),
                 margin: const EdgeInsets.all(15),
                 futureRequest: () async {
@@ -88,6 +89,7 @@ class _MyAppState extends State<MyApp> {
             ),
             const SizedBox(height: 20),
             SearchableDropdown<int>.paginated(
+              showSearchBar: false,
               backgroundDecoration: (child) => InputDecorator(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -137,6 +139,7 @@ class _MyAppState extends State<MyApp> {
               child: Column(
                 children: [
                   SearchableDropdownFormField<int>(
+                    showSearchBar: false,
                     initialValue: 2,
                     backgroundDecoration: (child) => Card(
                       margin: EdgeInsets.zero,
